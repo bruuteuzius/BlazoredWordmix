@@ -1,0 +1,49 @@
+@page "/"
+
+@using BlazoredWordmix.Web.Services
+@using BlazoredWordmix.Web.Models
+
+@inject DobbelstenenService dobbelstenenService
+
+<h1>Wordmix voor luie mensen</h1>
+
+@if (dobbelstenen == null)
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <div class="flex-container">
+    @foreach(var dobbelsteen in dobbelstenen) 
+    {
+        var dobbel = dobbelsteen.RandomKant();
+        <div>
+            @dobbel.Letter <br />
+            <i>@dobbel.Score</i>
+        </div>
+    }
+    </div>
+    <button @onclick="Schudden">Schudden!</button> <button @onclick="DoeHet">Doe het!</button>
+}
+
+@code {
+    private List<Dobbelsteen> dobbelstenen;
+    private List<Woord> oplossingen;
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(dobbelstenen == null) {
+            dobbelstenen = await dobbelstenenService.GetDobbelStenen();
+        }
+    }
+
+    protected async Task Schudden()
+    {
+        dobbelstenen = await dobbelstenenService.GetDobbelStenen();
+    }
+
+    protected async Task DoeHet()
+    {
+        oplossingen = await dobbelstenenService.GetOplossing(dobbelstenen);
+    }
+}
