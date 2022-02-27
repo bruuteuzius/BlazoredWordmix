@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using wordmix.Models;
+using BlazoredWordmix.Web.Models;
 using System.Collections.Generic;
 using System.Text; 
 using System; 

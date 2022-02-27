@@ -23,8 +23,9 @@ else
         </div>
     }
     </div>
-    <button @onclick="Schudden">Schudden!</button> <button @onclick="DoeHet">Doe het!</button>
+    <button @onclick="DoeHet">Doe het!</button>
 }
+<button @onclick="Schudden">Schudden!</button> 
 
 @code {
     private List<Dobbelsteen> dobbelstenen;
@@ -32,9 +33,9 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        if(dobbelstenen == null) {
+        @* if(dobbelstenen == null) {
             dobbelstenen = await dobbelstenenService.GetDobbelStenen();
-        }
+        } *@
     }
 
     protected async Task Schudden()
@@ -44,6 +45,6 @@ else
 
     protected async Task DoeHet()
     {
-        oplossingen = await dobbelstenenService.GetOplossing(dobbelstenen);
+        //oplossingen = await dobbelstenenService.GetOplossing(dobbelstenen);
     }
 }
