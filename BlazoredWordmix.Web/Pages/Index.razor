@@ -9,42 +9,34 @@
 
 @if (dobbelstenen == null)
 {
-    <p><em>Loading...</em></p>
+    <p><em>Schudden maarrrrr...</em></p>
 }
 else
 {
     <div class="flex-container">
     @foreach(var dobbelsteen in dobbelstenen) 
     {
-        var dobbel = dobbelsteen.RandomKant();
         <div>
-            @dobbel.Letter <br />
-            <i>@dobbel.Score</i>
+            @dobbelsteen.SpeelbareKant.Letter <br />
+            <i>@dobbelsteen.SpeelbareKant.Score</i>
         </div>
     }
     </div>
-    <button @onclick="DoeHet">Doe het!</button>
+    <button @onclick="@DoeHet">Doe het!</button>
 }
-<button @onclick="Schudden">Schudden!</button> 
+<button @onclick="@Schudden">Schudden!</button> 
 
 @code {
     private List<Dobbelsteen> dobbelstenen;
     private List<Woord> oplossingen;
 
-    protected override async Task OnInitializedAsync()
+    protected void Schudden(MouseEventArgs args)
     {
-        @* if(dobbelstenen == null) {
-            dobbelstenen = await dobbelstenenService.GetDobbelStenen();
-        } *@
+        dobbelstenen = dobbelstenenService.GetDobbelStenen();
     }
 
-    protected async Task Schudden()
+    protected void DoeHet(MouseEventArgs args)
     {
-        dobbelstenen = await dobbelstenenService.GetDobbelStenen();
-    }
-
-    protected async Task DoeHet()
-    {
-        //oplossingen = await dobbelstenenService.GetOplossing(dobbelstenen);
+        oplossingen = dobbelstenenService.GetOplossing(dobbelstenen);
     }
 }

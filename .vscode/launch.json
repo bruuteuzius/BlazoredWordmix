@@ -9,7 +9,7 @@
             "type": "coreclr",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceFolder}/BlazoredWordmix.Web/bin/Debug/net5.0/BlazoredWordmix.Web.dll",
+            "program": "${workspaceFolder}/BlazoredWordmix.Web/bin/Debug/net6.0/BlazoredWordmix.Web.dll",
             "args": [],
             "cwd": "${workspaceFolder}/BlazoredWordmix.Web/",
             "stopAtEntry": false,
