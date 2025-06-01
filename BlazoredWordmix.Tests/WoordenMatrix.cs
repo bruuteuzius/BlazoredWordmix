@@ -24,13 +24,13 @@ namespace BlazoredWordmix.Tests
              };
 
              _dobbelstenen = new List<Kant> {
-                 new Kant{ Score = 2, Letter = "l" },
-                 new Kant{ Score = 1, Letter = "e" },
-                 new Kant{ Score = 2, Letter = "u" },
-                 new Kant{ Score = 3, Letter = "k" },
-                 new Kant{ Score = 2, Letter = "o" },
-                 new Kant{ Score = 3, Letter = "m" },
-                 new Kant{ Score = 2, Letter = "t" },
+                 new Kant{ Score = 2, Letter = 'l' },
+                 new Kant{ Score = 1, Letter = 'e' },
+                 new Kant{ Score = 2, Letter = 'u' },
+                 new Kant{ Score = 3, Letter = 'k' },
+                 new Kant{ Score = 2, Letter = 'o' },
+                 new Kant{ Score = 3, Letter = 'm' },
+                 new Kant{ Score = 2, Letter = 't' },
              };
         }
 

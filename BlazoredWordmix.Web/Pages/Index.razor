@@ -25,10 +25,19 @@ else
     <button @onclick="@DoeHet">Doe het!</button>
 }
 <button @onclick="@Schudden">Schudden!</button> 
+@if (Resultaat != null)
+{
+    <h3>Beste woord = </h3>
+    <h1>@Resultaat.Value</h1>
+    <h3>Score = </h3>
+    <h1>@Resultaat.Score</h1>
+}
+
 
 @code {
     private List<Dobbelsteen> dobbelstenen;
     private List<Woord> oplossingen;
+    private Woord Resultaat;
 
     protected void Schudden(MouseEventArgs args)
     {
@@ -38,5 +47,6 @@ else
     protected void DoeHet(MouseEventArgs args)
     {
         oplossingen = dobbelstenenService.GetOplossing(dobbelstenen);
+        Resultaat = oplossingen?.FirstOrDefault();
     }
 }
